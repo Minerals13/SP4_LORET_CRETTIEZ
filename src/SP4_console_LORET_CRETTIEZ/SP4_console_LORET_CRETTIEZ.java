@@ -15,6 +15,9 @@ public class SP4_console_LORET_CRETTIEZ {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    DFFDDDDDDDDDDDDDDDDDDd}
+    Jeton Jaune = new Jeton ("jaune");
+    System.out.println(Jaune.toString());
+    System.out.println(Jaune.lireCouleur());
+    }
     
 }
