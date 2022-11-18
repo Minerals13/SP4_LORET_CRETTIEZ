@@ -20,7 +20,7 @@ public class CelluleDeGrille {
        boolean retour;
        if ((jetonCourant == "rouge") || (jetonCourant == "jaune")) {
        retour = true;
-       } else if (jetonCourant == null) {
+       } else {
        retour = false;
        }
     return retour;
