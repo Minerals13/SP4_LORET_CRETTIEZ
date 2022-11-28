@@ -28,6 +28,17 @@ public class CelluleDeGrille {
        this.jetonCourant = jetCour;
    }
    
+   public boolean presenceJeton (Jeton jetonCourant) {
+       if (jetonCourant == null) {
+           return false;
+       } else {
+           return true;
+       }
+   }
+   
+   public void affecterJeton (Jeton jetonCourant) {
+       this.jetonCourant = jetonCourant;
+   }
    
    public String lireCouleurDuJeton (Jeton jetonCourant) {
        if (jetonCourant != null) {
