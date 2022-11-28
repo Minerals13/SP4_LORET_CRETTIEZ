@@ -9,16 +9,22 @@ package SP4_console_LORET_CRETTIEZ;
  * @author emili
  */
 public class PlateauDeJeu {
+    
+    
+    public PlateauDeJeu () {
+     
     CelluleDeGrille[][] grille = new CelluleDeGrille[6][7];
     
-    int ligne;
-    for (int ligne=0;ligne<7;ligne++) {
-        for (int colonne=0;colonne<6;colonne++) {
-            grille[ligne][colonne] = new CelluleDeGrille ();
-        }
-    
-    }    
 
+        for (int ligne=0;ligne<7;ligne++) {
+            for (int colonne=0;colonne<6;colonne++) {
+                
+                grille[ligne][colonne] =  new CelluleDeGrille();             
+            
+            }
     
+        }    
+    
+    }
 }
 
