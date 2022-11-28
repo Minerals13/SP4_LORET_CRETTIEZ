@@ -9,20 +9,20 @@ package SP4_console_LORET_CRETTIEZ;
  * @author benja
  */
 public class CelluleDeGrille {
-   private String jetonCourant;
+    private String jetonCourant;
    
-   public CelluleDeGrille (String jeton) {
-       jetonCourant = jeton;
+    public CelluleDeGrille () {
+       
        this.jetonCourant = null;
-   }
+    }
    
-   public boolean presenceJeton () {
-       boolean retour;
-       if ((jetonCourant == "rouge") || (jetonCourant == "jaune")) {
-       retour = true;
-       } else {
-       retour = false;
-       }
+    public boolean presenceJeton () {
+        boolean retour;
+        if ((jetonCourant == "rouge") || (jetonCourant == "jaune")) {
+           retour = true;
+        } else {
+        retour = false;
+        }
     return retour;
    }
 }
