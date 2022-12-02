@@ -28,6 +28,10 @@ public class Joueur {
         int nbJetons = reserveJetons.size();
         return nbJetons;
     }
+
+    public String getColor() {
+        return Color;
+    }
     
     public void ajouterJeton (Jeton jet) {
         reserveJetons.add(jet);
