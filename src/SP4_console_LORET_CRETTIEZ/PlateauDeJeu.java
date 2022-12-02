@@ -78,7 +78,16 @@ public class PlateauDeJeu {
        
     }
         
-    public 
+    public String ligneGagnantePourCouleur(String quelCoul) {
+        for (int j=1;j<=7;j++) {
+            for (int i=1;i<=6;i++) {
+                if (grille[i][j].lireCouleurDuJeton()==quelCoul) {
+                    
+                }
+            }
+        }
+            
+    }
     
     
     
