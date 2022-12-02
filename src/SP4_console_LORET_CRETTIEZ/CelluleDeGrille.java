@@ -10,6 +10,8 @@ package SP4_console_LORET_CRETTIEZ;
  */
 public class CelluleDeGrille {
     private Jeton jetonCourant;
+    private boolean avoirTrouNoir;
+    private boolean avoirDesintegrateur;
     public void CelluleDeGrille () {
        this.jetonCourant = null;
     }
@@ -28,7 +30,7 @@ public class CelluleDeGrille {
        this.jetonCourant = jetCour;
    }
    
-   public String lireCouleurDuJeton (Jeton jetonCourant) {
+   public String lireCouleurDuJeton () {
        if (jetonCourant != null) {
            return jetonCourant.lireCouleur();
        } else {
@@ -55,6 +57,26 @@ public class CelluleDeGrille {
         temp = jetonCourant.lireCouleur();
         jetonCourant = null;
         return temp;
+    }
+    
+    public void placerTrouNoir () {
+        avoirTrouNoir = true;
+    }
+    
+    public void supprimerTrouNoir () {
+        avoirTrouNoir = false;
+    }
+    
+    public boolean presenceTrouNoir () {
+        if (avoirTrouNoir == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public void supprimerJeton () {
+        
     }
 }
 
