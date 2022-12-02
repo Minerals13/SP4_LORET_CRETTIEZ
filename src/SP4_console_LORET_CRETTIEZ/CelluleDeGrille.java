@@ -76,7 +76,12 @@ public class CelluleDeGrille {
     }
     
     public void supprimerJeton () {
-        
+        jetonCourant = null;
+    }
+    
+    public void activerTrouNoir () {
+        supprimerJeton();
+        supprimerTrouNoir();
     }
 }
 
