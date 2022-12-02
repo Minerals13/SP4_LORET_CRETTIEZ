@@ -36,8 +36,9 @@ public class PlateauDeJeu {
             } else {
                 grille[i][j].affecterJeton(jeton);
             }
-        return indLigneVide;
+        
         }
+        return indLigneVide;
     }
     
     public boolean grilleRemplie() {
@@ -50,19 +51,34 @@ public class PlateauDeJeu {
                 }
             } 
         }
-        return remplie;}
+        return remplie;
     }
-    
     
     public String afficherGrilleSurConsole() {
         for (int i=1;i<=6;i++) {
             for (int j=1;i<=7;j++) {
-                System.out.print(grille[i][j].toString());
+                if (j==6) {
+                    System.out.println("\n");                                      
+                } else {
+                    System.out.println(grille[i][j].toString());
+                }
             }
         }
     }
-        
     
+    public boolean presenceJeton(int x, int y) {
+        if (grille[x][y].presenceJeton()==true){
+            return true;
+                }   
+        return false;
+    }
+    
+    public String lireCouleurDuJeton(int x, int y) {
+        return grille[x][y].lireCouleurDuJeton();
+       
+    }
+        
+    public 
     
     
     
