@@ -12,12 +12,15 @@ public class CelluleDeGrille {
     private Jeton jetonCourant; //Déclaration de l'attribut jetonCourant (type Jeton)
     private boolean avoirTrouNoir; //Déclaration de l'attribut avoirTrouNoir (type boolean)
     private boolean avoirDesintegrateur; //Déclaration de l'attribut avoirDesintegrateur (type boolean)
-    public void CelluleDeGrille () {
+    
+    
+    public void CelluleDeGrille () { //Constructeur
        this.jetonCourant = null; //initialisation de l'attribut avec comme valeur par défaut : null
        this.avoirTrouNoir = false; //initialisation de l'attribut avec comme valeur par défaut : false
        this.avoirDesintegrateur = false; //initialisation de l'attribut avec comme valeur par défaut : false
     }
    
+    
     public boolean presenceJeton () {
         boolean retour; //variable temporaire de type boolean
         if ((jetonCourant.lireCouleur() == "rouge") || (jetonCourant.lireCouleur() == "jaune")) {
@@ -28,9 +31,11 @@ public class CelluleDeGrille {
     return retour; //retroune la variable 
     }
     
+    
    public void affecterJeton (Jeton jetCour) {
        this.jetonCourant = jetCour; //affecte la valeur de jetCour à jetonCourant pour l'ajouter en paramètre de la cellule
    }
+   
    
    public String lireCouleurDuJeton () {
        if (jetonCourant != null) {
@@ -40,6 +45,7 @@ public class CelluleDeGrille {
        }
        
    }
+   
    
    @Override
     public String toString() {
@@ -54,6 +60,7 @@ public class CelluleDeGrille {
         return retourner; //Renvoie la variable retourner
     }
     
+    
     public String recupererJeton () {
         String temp; //variable temporaire de type String
         temp = jetonCourant.lireCouleur(); //La variable prend la valeur de jetonCourant
@@ -61,13 +68,16 @@ public class CelluleDeGrille {
         return temp; //retourne la variable, donc l'ancienne couleur de jetonCourant
     }
     
+    
     public void placerTrouNoir () {
         avoirTrouNoir = true; //La valeur d'avoirTrouNoir devient true
     }
     
+    
     public void supprimerTrouNoir () {
         avoirTrouNoir = false; //La valeur d'avoirTrouNoir devient false
     }
+    
     
     public boolean presenceTrouNoir () {
         if (avoirTrouNoir == true) {
@@ -77,14 +87,17 @@ public class CelluleDeGrille {
         }
     }
     
+    
     public void supprimerJeton () {
         jetonCourant = null; //La valeur de jetonCourant devient null, il n'ya donc plus de jetonCourant
     }
+    
     
     public void activerTrouNoir () {
         supprimerJeton(); //Supprime le jeton de la cellule
         supprimerTrouNoir(); //Supprime le trou noir de la cellule
     }
+    
     
     public boolean presenceDesintegrateur () {
         if (avoirDesintegrateur == true) {
@@ -94,13 +107,16 @@ public class CelluleDeGrille {
         }
     }
     
+    
     public void placerDesintegrateur () {
         avoirDesintegrateur = true; //avoirDesintegrateur prend la valeur true, la cellule contient alors un desintegrateur
     }
     
+    
     public void supprimerDesintegrateur () {
         avoirDesintegrateur = false; //avoirDesintegrateur prend la valeur false, il n'y a plus de desintegrateur dans la cellule
     }
+    
     
     public void activerDesintegrateur () {
         supprimerJeton(); //Supprime le jeton de la cellule

@@ -10,7 +10,9 @@ package SP4_console_LORET_CRETTIEZ;
  */
 public class Jeton {
     private String couleur; //Déclaration de l'attribut couleur (type String)
-    public Jeton (String color) {
+    
+    
+    public Jeton (String color) { //Constructeur
         couleur = color; //L'attribut prend la valeur du paramètre color
     }
     
