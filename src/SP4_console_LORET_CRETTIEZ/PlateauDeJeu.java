@@ -86,7 +86,8 @@ public class PlateauDeJeu {
                 if (grille[i][j].lireCouleurDuJeton()== couleur ) {
                     cpt=+1;
                     if (cpt==4) {   
-                        gagnant = true;    
+                        gagnant = true; 
+                        return gagnant;
                     }     
                 }
             }
@@ -97,18 +98,57 @@ public class PlateauDeJeu {
     public boolean ligneGagnantePourCouleur (String couleur) {
         int cpt=0;
         boolean gagnant = false;
-        for (int i=1); i<=6;i++) {
+        for (int i=1; i<=6;i++) {
             for (int j=1;j<=7;j++) {
                 if (grille[i][j].lireCouleurDuJeton() == couleur) {
                     cpt=+1;
                     if (cpt==4) {
                         gagnant = true;
+                        return gagnant;
                     }                         
                 }
             }
-        return gagnant;    
-        }  
+        }
+        return gagnant;             
     }
+    
+    public boolean diagonaleMontanteGagnantePourCouleur (String couleur) {
+        boolean gagnant = false;
+        for (int i = 0; i<=2; i++) {
+            for (int j = 0; j<=3; j++) {
+                if (grille[i][j].lireCouleurDuJeton() == couleur) {
+                    if (grille[i+1][j+1].lireCouleurDuJeton() == couleur && grille[i+2][j+2].lireCouleurDuJeton() == couleur && grille[i+3][j+3].lireCouleurDuJeton() == couleur) {
+                        gagnant = true;
+                        return gagnant;
+                    }
+                }
+            }
+        }
+        return gagnant;
+    }
+           
+     public boolean diagonaleDescendanteGagnantePourCouleur(String couleur) {
+        boolean gagnant = false;
+        for (int i = 5; i>=3; i--) {
+            for (int j = 0; j<=4; j--) {
+                if (grille[i][j].lireCouleurDuJeton() == couleur) {
+                    if (grille[i-1][j+1].lireCouleurDuJeton() == couleur && grille[i-2][j+2].lireCouleurDuJeton() == couleur && grille[i-3][j+3].lireCouleurDuJeton() == couleur) {
+                        gagnant = true;
+                        return gagnant;
+                    }
+                }
+            }
+        }
+        return gagnant;
+    }
+    public boolean etreGagnantePourCouleur(String couleur){
+        if ( ligneGagnantePourCouleur (couleur) == true && colonneGagnantePourCouleur (couleur) == true && diagonaleMontanteGagnantePourCouleur (couleur) == true && diagonaleDescendanteGagnantePourCouleur (couleur) == true ) {
+            return  true ;
+        }
+        else {
+            return  false ;
+        }
+    }  
     
     
 }
