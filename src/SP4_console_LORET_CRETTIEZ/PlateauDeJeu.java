@@ -54,7 +54,7 @@ public class PlateauDeJeu {
         return remplie;
     }
     
-    public String afficherGrilleSurConsole() {
+    public void afficherGrilleSurConsole() {
         for (int i=1;i<=6;i++) {
             for (int j=1;i<=7;j++) {
                 if (j==6) {
@@ -150,6 +150,79 @@ public class PlateauDeJeu {
         }
     }  
     
+    public void tasserColonne(int indColonne) {
+        for (int i = 0; i<5; i++) {
+            if (grille[i][indColonne].presenceJeton() == false) {
+                if (grille[i+1][indColonne].presenceJeton() == true) {
+                    grille[i][indColonne].affecterJeton(grille[i+1][indColonne].recupererJeton()); // Récupère la valeur de jeton de la ligne n+1 pour la mettre à la ligne n
+                    grille[i+1][indColonne].supprimerJeton();
+                }
+            }
+        }
+    }
+    
+    public boolean colonneRemplie(int indColonne) {
+        boolean remplie =false;
+        int indLigne=6;
+        if (grille[indLigne][indColonne].presenceJeton()==true){
+            remplie=true;
+            return remplie;
+        } else {
+            remplie =false;  
+            return remplie;
+        }
+        }
+    
+    
+    public boolean presenceTrouNoir(int i, int j){
+        if (grille[i][j].presenceTrouNoir()==true){
+            return true;
+        }
+        else{
+            return false;
+        }     
+    }
+    
+    public void placerTrouNoir(int i, int j) {
+        grille[i][j].placerTrouNoir();
+    }  
+    
+    public void supprimerTrouNoir(int i, int j){
+        grille[i][j].supprimerTrouNoir();
+    }
+    
+    /////////////
+    
+    
+    public boolean presenceDesintegrateur (int i, int j) {
+        if (grille[i][j].presenceDesintegrateur()==true){
+            return true;
+        }else {
+            return false;                   
+        }
+    }
+    
+    public void supprimerDesintegrateur(int i, int j){
+        grille[i][j].supprimerTrouNoir();
+    }
+        
+    public void placerDesintegrateur(int i, int j){
+        grille[i][j].placerDesintegrateur();
+    }    
+    
+    ////////////
+    
+    public void supprimerJeton(int i, int j){
+        grille[i][j].supprimerJeton();
+    }
+    
+    public Jeton recupererJeton(int i, int j){
+        return grille[i][j].recupererJeton();    
+    }   
+    
+    
+
+
     
 }
     
