@@ -78,7 +78,7 @@ public class PlateauDeJeu {
        
     }
         
-    public boolean ligneGagnantePourCouleur(String couleur) { //Métohde qui annonce si la couleur sélectionnée  est gagnante sur les lignes
+    public boolean colonneGagnantePourCouleur(String couleur) { //Métohde qui annonce si la couleur sélectionnée  est gagnante sur les lignes
         int cpt =0;
         boolean gagnant = false;
         for (int j=1;j<=7;j++) {
@@ -94,8 +94,20 @@ public class PlateauDeJeu {
         return gagnant;        
     }
     
-    public boolean colonneGagnantePourCouleur (String couleur) {
-        int
+    public boolean ligneGagnantePourCouleur (String couleur) {
+        int cpt=0;
+        boolean gagnant = false;
+        for (int i=1); i<=6;i++) {
+            for (int j=1;j<=7;j++) {
+                if (grille[i][j].lireCouleurDuJeton() == couleur) {
+                    cpt=+1;
+                    if (cpt==4) {
+                        gagnant = true;
+                    }                         
+                }
+            }
+        return gagnant;    
+        }  
     }
     
     
