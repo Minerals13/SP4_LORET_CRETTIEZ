@@ -78,18 +78,25 @@ public class PlateauDeJeu {
        
     }
         
-    public String ligneGagnantePourCouleur(String quelCoul) {
+    public boolean ligneGagnantePourCouleur(String couleur) { //Métohde qui annonce si la couleur sélectionnée  est gagnante sur les lignes
+        int cpt =0;
+        boolean gagnant = false;
         for (int j=1;j<=7;j++) {
             for (int i=1;i<=6;i++) {
-                if (grille[i][j].lireCouleurDuJeton()==quelCoul) {
-                    
+                if (grille[i][j].lireCouleurDuJeton()== couleur ) {
+                    cpt=+1;
+                    if (cpt==4) {   
+                        gagnant = true;    
+                    }     
                 }
             }
         }
-            
+        return gagnant;        
     }
     
-    
+    public boolean colonneGagnantePourCouleur (String couleur) {
+        int
+    }
     
     
 }
