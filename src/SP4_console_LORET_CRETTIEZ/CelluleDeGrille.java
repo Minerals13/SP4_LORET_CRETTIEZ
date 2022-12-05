@@ -122,23 +122,6 @@ public class CelluleDeGrille {
         supprimerJeton(); //Supprime le jeton de la cellule
         supprimerDesintegrateur(); //Supprime le desintegrateur de la cellule
     }
-    
-    public boolean presenceDesintegrateur(){
-        if (avoirDesintegrateur==true){
-            return true ;
-        }
-        else{
-            return false ;
-        }
-    }
-    
-    public void placerDesintegrateur(){
-        avoirDesintegrateur = true;
-    }
-    
-    public void supprimerDesintegrateur(){
-        avoirDesintegrateur = false;   
-    }
 
 }
 
