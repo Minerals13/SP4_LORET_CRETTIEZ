@@ -120,8 +120,12 @@ public class Partie {
                    System.out.println("Dans quelle colonne souhaitez vous placer votre jeton ? (colonne 1 à 7");
                    colonne = scan.nextInt();
                 }
-              ligne = plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), colonne);
-              
+                while (plateau.colonneRemplie(colonne) == true) { //Il faut mettre le plateau?
+                    System.out.println("La colonne est pleine, choisissez une autre colonne");
+                    colonne = scan.nextInt();
+                }
+                ligne = plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), colonne);
+                
             }
         }
     }
