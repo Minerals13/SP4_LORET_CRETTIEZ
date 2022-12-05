@@ -114,7 +114,7 @@ public class Partie {
                 System.out.println("Utiliser un désintégrateur : 3");
                 choix = scan.nextInt();
             }
-            if (choix == 1 ) {
+            if (choix == 1 ) { //Le joueur place un jeton
                 colonne = 10;
                 while (colonne < 1 && colonne > 7) {
                    System.out.println("Dans quelle colonne souhaitez vous placer votre jeton ? (colonne 1 à 7");
@@ -125,12 +125,45 @@ public class Partie {
                     colonne = scan.nextInt();
                 }
                 ligne = plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), colonne - 1);
-                if (plateau.presenceTrouNoir(ligne, colonne)) {
-                    
+                if (plateau.presenceTrouNoir(ligne, colonne) == true) {
+                    plateau.supprimerJeton(ligne, colonne);
+                    plateau.supprimerTrouNoir(ligne, colonne - 1);
+                    System.out.println("Le jeton a été engloutit par un trou noir");
+                }
+                if (plateau.presenceDesintegrateur(ligne, colonne - 1) == true) {
+                    plateau.supprimerDesintegrateur(ligne, colonne - 1);
+                    joueurCourant.obtenirDesintegrateur();
+                    System.out.println("Vous avez gagné un désintégrateur");
+                }
+            } else if (choix == 2) {
+                System.out.println("Quelle est la colonne du jeton ?");
+                colonne = scan.nextInt();
+                System.out.println("Quelle est la ligne du jeton ?");
+                ligne = scan.nextInt();
+                while (plateau.lireCouleurDuJeton(colonne - 1, ligne - 1) != joueurCourant.getColor()) {
+                    System.out.println("Vous n'avez pas de jeton sur cette case");
+                    System.out.println("Quelle est la colonne du jeton ?");
+                    colonne = scan.nextInt();
+                    System.out.println("Quelle est la ligne du jeton ?");
+                    ligne = scan.nextInt();
+                }   
+                joueurCourant.ajouterJeton(plateau.recupererJeton(ligne - 1, colonne - 1));
+                plateau.tasserColonne(colonne - 1);
+            } else if (choix == 3) {
+                System.out.println("Quelle est la colonne du jeton à désintégrer ?");
+                colonne = scan.nextInt();
+                System.out.println("Quelle est la ligne du jeton à désintégrer ?");
+                ligne = scan.nextInt();
+                while (plateau.lireCouleurDuJeton(colonne - 1, ligne - 1) == joueurCourant.getColor() || plateau.lireCouleurDuJeton(colonne -1, ligne - 1) == null) {
+                    System.out.println("Erreur : vous allez désintégrer un de vos jetons ou le vide, choisissez une autre case");
+                    System.out.println("Quelle est la colonne du jeton à désintégrer ?");
+                    colonne = scan.nextInt();
+                    System.out.println("Quelle est la ligne du jeton à désintégrer ?");
+                    ligne = scan.nextInt();
                 }
             }
         }
     }
-}
+} 
 
 
