@@ -15,11 +15,13 @@ public class Partie {
     private Joueur joueurCourant;
     private PlateauDeJeu plateau;
     
-    public void Partie (Joueur J1, Joueur J2) {
+    
+    public void Partie (Joueur J1, Joueur J2) { //Constructeur
         listeJoueurs [0] = J1;
         listeJoueurs [1] = J2;
         PlateauDeJeu plateau1 = new PlateauDeJeu();
     }
+    
     
     private void attribuerCouleurAuxJoueurs () {
         Random r = new Random ();
@@ -33,17 +35,38 @@ public class Partie {
         }
     }
     
+    
     private void creerEtAffecterJeton (Joueur J3) {
         for (int i=0; i<30; i++) {
             J3.ajouterJeton(new Jeton(J3.getColor()));
         }
     }
     
+    public void placerTrousNoirsEtDesintegrateurs() {
+        int nb = 0;
+        int col = 0;
+        int lig = 0;
+        while (nb < 5) {
+            Random ab = new Random ();
+            int cd = ab.nextInt(5);
+            int ef = ab.nextInt(6);
+            if (plateau1.presenceTrouNoir(cd, ef) == false) {
+                plateau1.placerTrouNoir(cd, ef);
+            }
+        }
+    }
+    
+    
+    
+    
+    
     public void initialiserPartie() {
         attribuerCouleurAuxJoueurs();
         creerEtAffecterJeton(listeJoueurs[0]);
         creerEtAffecterJeton(listeJoueurs[1]);
+        placerTrousNoirsEtDesintegrateurs();
     }
+    
     
     public void lancerPartie() {
         

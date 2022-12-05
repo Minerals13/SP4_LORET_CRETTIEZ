@@ -9,30 +9,27 @@ package SP4_console_LORET_CRETTIEZ;
  * @author benja
  */
 public class Jeton {
-    private String couleur;
-    String codecoul;
-    public Jeton (String color) {
-        couleur = color;
-        if (color == "rouge") {
-            codecoul = "R";
-        } else if (color == "jaune") {
-            codecoul = "J";
-        } else {
-            System.out.println("Problème de couleur, il n'y a que deux choix possibles : rouge ou jaune");
-        }
+    private String couleur; //Déclaration de l'attribut couleur (type String)
+    
+    
+    public Jeton (String color) { //Constructeur
+        couleur = color; //L'attribut prend la valeur du paramètre color
     }
     
    
     public String lireCouleur () {
-        String retour;
-        retour = couleur;
-        return retour;
+        return couleur; //Retourne la valeur de couleur
     }
+    
     
     @Override
     public String toString() {
-        String retourner;
-        retourner = codecoul;
-        return retourner;
+        String retourner = null; //Déclaration de la variable retourner, initialisation à null
+        if (couleur == "rouge") {
+            retourner = "R"; //Si le jeton est rouge, retourner prend la valeur "R"
+        } else if (couleur == "jaune") {
+            retourner = "J"; //Si la jeton est jaune, retourner prend la valeur "J"
+        }
+        return retourner; //Retourne la variable
     }
 }
