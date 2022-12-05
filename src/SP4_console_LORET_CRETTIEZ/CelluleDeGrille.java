@@ -61,11 +61,11 @@ public class CelluleDeGrille {
     }
     
     
-    public String recupererJeton () {
-        String temp; //variable temporaire de type String
-        temp = jetonCourant.lireCouleur(); //La variable prend la valeur de jetonCourant
+    public Jeton recupererJeton () {
+        Jeton temp; //variable temporaire de type Jeton
+        temp = jetonCourant; //La variable prend la valeur de jetonCourant
         jetonCourant = null; //jetonCourant prend la valeur null
-        return temp; //retourne la variable, donc l'ancienne couleur de jetonCourant
+        return temp; //retourne la variable, donc l'ancienne valeur de jetonCourant
     }
     
     

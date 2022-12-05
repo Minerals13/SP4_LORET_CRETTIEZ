@@ -44,15 +44,25 @@ public class Partie {
     
     public void placerTrousNoirsEtDesintegrateurs() {
         int nb = 0;
-        int col = 0;
-        int lig = 0;
-        while (nb < 5) {
+        int col;
+        int lig;
+        while (nb < 3) {
             Random ab = new Random ();
-            int cd = ab.nextInt(5);
-            int ef = ab.nextInt(6);
-            if (plateau1.presenceTrouNoir(cd, ef) == false) {
-                plateau1.placerTrouNoir(cd, ef);
+            col = ab.nextInt(5);
+            lig = ab.nextInt(6);
+            if (plateau.presenceTrouNoir(col, lig) == false) {
+                plateau.placerTrouNoir(col, lig);
+                if (plateau.presenceDesintegrateur(col, lig) == false) {
+                    plateau.placerDesintegrateur(col, lig);
+                    nb += 1;
+                }
             }
+        }
+        while (nb < 5) {
+            Random cd = new Random ();
+            col = cd.nextInt(5);
+            lig = cd.nextInt(6);
+            if (plateau.presenceTrouNoir)
         }
     }
     
