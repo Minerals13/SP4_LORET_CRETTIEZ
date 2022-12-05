@@ -16,8 +16,8 @@ public class PlateauDeJeu {
     grille = new CelluleDeGrille[6][7];
     
         
-        for (int ligne=0;ligne<=6;ligne++) {
-            for (int colonne=0;colonne<=7;colonne++) {
+        for (int ligne=0;ligne<6;ligne++) {
+            for (int colonne=0;colonne<7;colonne++) {
                 
                 grille[ligne][colonne] =  new CelluleDeGrille();                       
             }    
@@ -29,7 +29,7 @@ public class PlateauDeJeu {
     public int ajouterJetonDansColonne(Jeton jeton, int colonne) {  // Ajoute un jeton le plus bas possible.
         //Jeton corresponds au jeton du joueur et int corresponds à son indice de colonne
         int j=colonne;
-        for (int i=0;i<7;i++) {  //i servira d'indice de ligne pour trouver une case vide
+        for (int i=0;i<6;i++) {  //i servira d'indice de ligne pour trouver une case vide
             if (grille[i][j].presenceJeton()==true) { // On part de la ligne 0 (en bas) et dès qu'on trouve une ligne vide dans la colonne choisie,
                                                 // on enregistre l'indice de cette ligne dans une variable "indLigneVide"
                 indLigneVide++;
@@ -43,8 +43,8 @@ public class PlateauDeJeu {
     
     public boolean grilleRemplie() {
     boolean remplie = true;    
-        for (int ligne=0;ligne<=6;ligne++) {
-            for (int colonne=0;colonne<=7;colonne++) {
+        for (int ligne=0;ligne<6;ligne++) {
+            for (int colonne=0;colonne<7;colonne++) {
                 if (grille[ligne][colonne].presenceJeton()==false) {                   
                     remplie = false;
                     return remplie;               
@@ -55,8 +55,8 @@ public class PlateauDeJeu {
     }
     
     public void afficherGrilleSurConsole() {
-        for (int i=1;i<=6;i++) {
-            for (int j=1;i<=7;j++) {
+        for (int i=0;i<6;i++) {
+            for (int j=0;i<7;j++) {
                 if (j==6) {
                     System.out.println("\n");                                      
                 } else {
@@ -81,8 +81,8 @@ public class PlateauDeJeu {
     public boolean colonneGagnantePourCouleur(String couleur) { //Métohde qui annonce si la couleur sélectionnée  est gagnante sur les lignes
         int cpt =0;
         boolean gagnant = false;
-        for (int j=1;j<=7;j++) {
-            for (int i=1;i<=6;i++) {
+        for (int j=0;j<7;j++) {
+            for (int i=0;i<6;i++) {
                 if (grille[i][j].lireCouleurDuJeton()== couleur ) {
                     cpt=+1;
                     if (cpt==4) {   
@@ -98,8 +98,8 @@ public class PlateauDeJeu {
     public boolean ligneGagnantePourCouleur (String couleur) {
         int cpt=0;
         boolean gagnant = false;
-        for (int i=1; i<=6;i++) {
-            for (int j=1;j<=7;j++) {
+        for (int i=0; i<6;i++) {
+            for (int j=0;j<7;j++) {
                 if (grille[i][j].lireCouleurDuJeton() == couleur) {
                     cpt=+1;
                     if (cpt==4) {
@@ -154,7 +154,7 @@ public class PlateauDeJeu {
         for (int i = 0; i<5; i++) {
             if (grille[i][indColonne].presenceJeton() == false) {
                 if (grille[i+1][indColonne].presenceJeton() == true) {
-                    grille[i][indColonne].affecterJeton(grille[i+1][indColonne].recupererJeton()); // Récupère la valeur de jeton de la ligne n+1 pour la mettre à la ligne n
+                    grille[i][indColonne].affecterJeton(grille[i+1][indColonne].recupererJeton()); // Récupère le jeton de la ligne n+1 pour la mettre à la ligne n
                     grille[i+1][indColonne].supprimerJeton();
                 }
             }
@@ -163,7 +163,7 @@ public class PlateauDeJeu {
     
     public boolean colonneRemplie(int indColonne) {
         boolean remplie =false;
-        int indLigne=6;
+        int indLigne=5;
         if (grille[indLigne][indColonne].presenceJeton()==true){
             remplie=true;
             return remplie;
