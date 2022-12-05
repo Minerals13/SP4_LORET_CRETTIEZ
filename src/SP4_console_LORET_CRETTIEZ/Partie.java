@@ -46,28 +46,45 @@ public class Partie {
         int nb = 0;
         int col;
         int lig;
-        while (nb < 3) {
+        int nombre1 = 0;
+        int nombre2 = 0;
+        while (nb < 3) { //On s'occupe des trois premiers trous noirs et desintegrateurs 
             Random ab = new Random ();
-            col = ab.nextInt(5);
-            lig = ab.nextInt(6);
-            if (plateau.presenceTrouNoir(col, lig) == false) {
-                plateau.placerTrouNoir(col, lig);
-                if (plateau.presenceDesintegrateur(col, lig) == false) {
-                    plateau.placerDesintegrateur(col, lig);
-                    nb += 1;
+            col = ab.nextInt(6); //Tire un chiffre entre 0 et 6
+            lig = ab.nextInt(5); //Tire un chiffre entre en 0 et 5
+            if (plateau.presenceTrouNoir(lig, col) == false) { //Si il n'y a pas de trou noir
+                plateau.placerTrouNoir(lig, col); //On en place un
+                if (plateau.presenceDesintegrateur(lig, col) == false) { //Si il n'y a pas de désintégrateur
+                    plateau.placerDesintegrateur(lig, col); //On en place un
+                    nb += 1; //On ajoute 1 pour petit à petit sortir de la boucle while
                 }
             }
         }
-        while (nb < 5) {
-            Random cd = new Random ();
-            col = cd.nextInt(5);
-            lig = cd.nextInt(6);
-            if (plateau.presenceTrouNoir)
+        //Ici nb = 3
+        while (nb < 5) { //On s'occupe des derniers trous noirs et désintégrateurs
+            while (nombre1 < 2) { //En premier les trous noirs
+                Random cd = new Random ();
+                col = cd.nextInt(6);
+                lig = cd.nextInt(5);
+                if (plateau.presenceTrouNoir(lig, col) == false) {
+                plateau.placerTrouNoir(lig, col);
+                nombre1 += 1;
+                } 
+            }   
+            while (nombre2 < 2) { //En deuxième les désintégrateurs
+                Random ef = new Random ();
+                col = ef.nextInt(6);
+                lig = ef.nextInt(5);
+                if (plateau.presenceTrouNoir(lig, col) == false) {
+                    //Les premiers trous noirs et désintégrateurs sont aux mêmes endroits
+                    //Les autres trous noirs ne doivent pas etre confondu avec les désintégrateurs
+                    //On verifie donc si il n'y a pas de trou noir
+                    plateau.placerDesintegrateur(lig, col);
+                    nombre2 += 1;
+                }
+            }
         }
     }
-    
-    
-    
     
     
     public void initialiserPartie() {
@@ -79,7 +96,7 @@ public class Partie {
     
     
     public void lancerPartie() {
-        
+        joueurCourant = listeJoueurs[0];
     }
 }
 
