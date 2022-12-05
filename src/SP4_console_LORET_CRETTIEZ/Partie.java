@@ -124,8 +124,10 @@ public class Partie {
                     System.out.println("La colonne est pleine, choisissez une autre colonne");
                     colonne = scan.nextInt();
                 }
-                ligne = plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), colonne);
-                
+                ligne = plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), colonne - 1);
+                if (plateau.presenceTrouNoir(ligne, colonne)) {
+                    
+                }
             }
         }
     }
