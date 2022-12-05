@@ -5,6 +5,7 @@
 package SP4_console_LORET_CRETTIEZ;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -97,6 +98,32 @@ public class Partie {
     
     public void lancerPartie() {
         joueurCourant = listeJoueurs[0];
+        boolean fin = false;
+        int choix;
+        int colonne;
+        int ligne;
+        while (fin == false) {
+            Scanner scan = new Scanner(System.in);
+            plateau.afficherGrilleSurConsole();
+            System.out.println("C'est au tour de " + joueurCourant + " de jouer, couleur : "+joueurCourant.getColor());
+            choix = 4;
+            while (choix > 0 && choix < 4) {
+                System.out.println("Action possible");
+                System.out.println("Placer un jeton : 1");
+                System.out.println("Récupérer un jeton : 2");
+                System.out.println("Utiliser un désintégrateur : 3");
+                choix = scan.nextInt();
+            }
+            if (choix == 1 ) {
+                colonne = 10;
+                while (colonne < 1 && colonne > 7) {
+                   System.out.println("Dans quelle colonne souhaitez vous placer votre jeton ? (colonne 1 à 7");
+                   colonne = scan.nextInt();
+                }
+              ligne = plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), colonne);
+              
+            }
+        }
     }
 }
 
