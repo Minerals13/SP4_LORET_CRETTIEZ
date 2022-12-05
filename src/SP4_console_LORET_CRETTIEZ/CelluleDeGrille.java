@@ -52,9 +52,9 @@ public class CelluleDeGrille {
         return retourner;
     }
     
-    public String recupererJeton () {
-        String temp;
-        temp = jetonCourant.lireCouleur();
+    public Jeton recupererJeton () {
+        Jeton temp;
+        temp = jetonCourant;
         jetonCourant = null;
         return temp;
     }
@@ -83,5 +83,23 @@ public class CelluleDeGrille {
         supprimerJeton();
         supprimerTrouNoir();
     }
+    
+    public boolean presenceDesintegrateur(){
+        if (avoirDesintegrateur==true){
+            return true ;
+        }
+        else{
+            return false ;
+        }
+    }
+    
+    public void placerDesintegrateur(){
+        avoirDesintegrateur = true;
+    }
+    
+    public void supprimerDesintegrateur(){
+        avoirDesintegrateur = false;   
+    }
+
 }
 
