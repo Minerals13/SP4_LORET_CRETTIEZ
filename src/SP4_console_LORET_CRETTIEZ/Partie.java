@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class Partie {
     private Joueur listeJoueurs [] = new Joueur [2];
     private Joueur joueurCourant;
+    private Joueur joueurDeux;
     private PlateauDeJeu plateau;
     
     
@@ -135,7 +136,7 @@ public class Partie {
                     joueurCourant.obtenirDesintegrateur();
                     System.out.println("Vous avez gagné un désintégrateur");
                 }
-            } else if (choix == 2) {
+            } else if (choix == 2) { //Le joueur récupère un jeton
                 System.out.println("Quelle est la colonne du jeton ?");
                 colonne = scan.nextInt();
                 System.out.println("Quelle est la ligne du jeton ?");
@@ -149,7 +150,7 @@ public class Partie {
                 }   
                 joueurCourant.ajouterJeton(plateau.recupererJeton(ligne - 1, colonne - 1));
                 plateau.tasserColonne(colonne - 1);
-            } else if (choix == 3) {
+            } else if (choix == 3) { //Le joueur utilise un désintégrateur
                 System.out.println("Quelle est la colonne du jeton à désintégrer ?");
                 colonne = scan.nextInt();
                 System.out.println("Quelle est la ligne du jeton à désintégrer ?");
@@ -161,7 +162,23 @@ public class Partie {
                     System.out.println("Quelle est la ligne du jeton à désintégrer ?");
                     ligne = scan.nextInt();
                 }
+                plateau.supprimerJeton(colonne - 1, ligne - 1);
+                joueurCourant.utiliserDesintegrateur();
+                plateau.tasserColonne(colonne - 1);
             }
+            if (plateau.etreGagnantePourCouleur(joueurCourant.getColor())) { //Le joueurCourant a gagné la partie
+                fin = true;
+                plateau.afficherGrilleSurConsole();
+                System.out.println("Le joueur " + joueurCourant + " a remporté la partie");           
+            } else if (plateau.etreGagnantePourCouleur(joueurDeux.getColor())) { //Le joueurDeux a gagné la partie
+                fin = true;
+                plateau.afficherGrilleSurConsole();
+                System.out.println("Le joueur "+ joueurDeux + " a remporté la partie");
+            } else if (plateau.grilleRemplie()) { //Grille pleine, égalité
+                fin = true;
+                System.out.println("La grille est entièrement remplie, fin de partie");
+            }
+            joueurCourant = joueurDeux; //Changement de joueur, c'est au tour du deuxième joueur de jouer
         }
     }
 } 
