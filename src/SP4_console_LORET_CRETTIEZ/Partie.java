@@ -63,27 +63,25 @@ public class Partie {
             }
         }
         //Ici nb = 3
-        while (nb < 5) { //On s'occupe des derniers trous noirs et désintégrateurs
-            while (nombre1 < 2) { //En premier les trous noirs
-                Random cd = new Random ();
-                col = cd.nextInt(6);
-                lig = cd.nextInt(5);
+        while (nombre1 < 2) { //En premier les trous noirs
+            Random cd = new Random ();
+            col = cd.nextInt(6);
+            lig = cd.nextInt(5);
                 if (plateau.presenceTrouNoir(lig, col) == false) {
                 plateau.placerTrouNoir(lig, col);
                 nombre1 += 1;
                 } 
-            }   
-            while (nombre2 < 2) { //En deuxième les désintégrateurs
-                Random ef = new Random ();
-                col = ef.nextInt(6);
-                lig = ef.nextInt(5);
-                if (plateau.presenceTrouNoir(lig, col) == false) {
-                    //Les premiers trous noirs et désintégrateurs sont aux mêmes endroits
-                    //Les autres trous noirs ne doivent pas etre confondu avec les désintégrateurs
-                    //On verifie donc si il n'y a pas de trou noir
-                    plateau.placerDesintegrateur(lig, col);
-                    nombre2 += 1;
-                }
+        }   
+        while (nombre2 < 2) { //En deuxième les désintégrateurs
+            Random ef = new Random ();
+            col = ef.nextInt(6);
+            lig = ef.nextInt(5);
+            if (plateau.presenceTrouNoir(lig, col) == false) {
+                //Les premiers trous noirs et désintégrateurs sont aux mêmes endroits
+                //Les autres trous noirs ne doivent pas etre confondu avec les désintégrateurs
+                //On verifie donc si il n'y a pas de trou noir
+                plateau.placerDesintegrateur(lig, col);
+                nombre2 += 1;
             }
         }
     }
