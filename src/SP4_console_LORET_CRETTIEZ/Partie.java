@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author benja
  */
 public class Partie {
-    private Joueur listeJoueurs [] = new Joueur [2];
+    private Joueur listeJoueurs [] = new Joueur [2]; //Création de la liste des joueurs comprennant 2 joueurs
     private Joueur joueurCourant;
     private Joueur joueurDeux;
     private PlateauDeJeu plateau;

@@ -15,11 +15,11 @@ public class SP4_console_LORET_CRETTIEZ {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    Joueur joueur1 = new Joueur ("Emilien");
+    Joueur joueur1 = new Joueur ("Emilien"); //Création des joueurs
     Joueur joueur2 = new Joueur ("Benjamin");
-    Partie partie1 = new Partie (joueur1, joueur2);
-    partie1.initialiserPartie();
-    partie1.lancerPartie();
+    Partie partie1 = new Partie (joueur1, joueur2); //Création de la partie
+    partie1.initialiserPartie(); //Initialisation
+    partie1.lancerPartie(); //Lancement 
     
     }
     

@@ -14,7 +14,7 @@ public class CelluleDeGrille {
     private boolean avoirDesintegrateur; //Déclaration de l'attribut avoirDesintegrateur (type boolean)
     
     
-    public void CelluleDeGrille () { //Constructeur
+    public CelluleDeGrille () { //Constructeur
        this.jetonCourant = null; //initialisation de l'attribut avec comme valeur par défaut : null
        this.avoirTrouNoir = false; //initialisation de l'attribut avec comme valeur par défaut : false
        this.avoirDesintegrateur = false; //initialisation de l'attribut avec comme valeur par défaut : false
