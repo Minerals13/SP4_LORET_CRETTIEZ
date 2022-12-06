@@ -18,10 +18,10 @@ public class Partie {
     private PlateauDeJeu plateau;
     
     
-    public void Partie (Joueur J1, Joueur J2) { //Constructeur
+    public Partie (Joueur J1, Joueur J2) { //Constructeur
         listeJoueurs [0] = J1;
         listeJoueurs [1] = J2;
-        PlateauDeJeu plateau1 = new PlateauDeJeu();
+        this.plateau = new PlateauDeJeu();
     }
     
     
