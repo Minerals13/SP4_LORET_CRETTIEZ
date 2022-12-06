@@ -56,7 +56,7 @@ public class PlateauDeJeu {  //Initialisation d'un constructeur
     
     public void afficherGrilleSurConsole() { //Méthode qui affiche notre grille remplie sur la base de la méthode toString
         for (int i=0;i<6;i++) { //On parcourt toutes les lignes une par une, en affichant à chaque fois toute la ligne en changeant l'indice de colonne
-            for (int j=0;i<7;j++) {
+            for (int j=0;j<7;j++) {
                 if (j==6) {     //Une fois qu'on attends la fin de la ligne (j=6), on fait un retour à la ligne et on reprends sur une nouvelle ligne
                     System.out.println("\n");                                       
                 } else {
