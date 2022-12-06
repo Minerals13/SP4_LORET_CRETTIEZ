@@ -17,6 +17,8 @@ public class SP4_console_LORET_CRETTIEZ {
         // TODO code application logic here
     Joueur joueur1 = new Joueur ("Emilien"); //Création des joueurs
     Joueur joueur2 = new Joueur ("Benjamin");
+    //listeJoueurs[0] = joueur1;
+    //listeJoueurs[1] = joueur2;
     Partie partie1 = new Partie (joueur1, joueur2); //Création de la partie
     partie1.initialiserPartie(); //Initialisation
     partie1.lancerPartie(); //Lancement 

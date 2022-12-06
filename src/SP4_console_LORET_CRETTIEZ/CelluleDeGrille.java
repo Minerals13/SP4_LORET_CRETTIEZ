@@ -49,19 +49,29 @@ public class CelluleDeGrille {
    
    @Override
     public String toString() {
-        String retourner; //Variable temporaire de type String
-        if (jetonCourant.lireCouleur() == "rouge") {
-        retourner = "R"; //Si jetonCourant est rouge, retourner prend la valeur "R"
-        } else if (jetonCourant.lireCouleur() == "jaune") {
-            retourner = "J"; //Si jetonCourant est jaune, retourner prend la valeur "J"
-        }else if (presenceDesintegrateur () == true) {
-            retourner = "D";
-        } else if (presenceTrouNoir() == true) {
-            retourner = "@";
-        } else {
-            retourner = "."; //Si il n'y a pas de couleur, il n'y a pas de jeton, donc retourner prend la valeur "."
+        String retourner = null; //Variable temporaire de type String
+        if (jetonCourant == null) { //Lorsqu'il n'y a pas de jeton
+            if (presenceDesintegrateur() == true) { //Si il y a un désintegrateur
+                //Cas où le désintégrateur et le trou noir sont sur la même case
+                if (presenceTrouNoir() == true) { //Et un trou noir
+                    retourner = "@"; //On marque qu'il y a un trou noir
+                } else {
+                    retourner = "D"; //Sinon on marque qu'il y a un désintégrateur
+                }
+            } else if (presenceTrouNoir() == true) { //Si il y a un trou noir
+                //Cas où les désintégrateurs et les trous noirs ne sont pas confondus sur une même case
+                if (presenceDesintegrateur() == false) { //Et pas de désintégrateur
+                    retourner = "@"; //On marque qu'il y a un trou noir
+                } 
+            } else {
+                retourner = "."; //Si il n'y a rien sur la case 
+            }  
+        } else if (jetonCourant.lireCouleur() == "rouge") { //Si il y a un jeton rouge
+            retourner = "R";
+        } else if (jetonCourant.lireCouleur() == "jaune") { //Si il y a un jeton jaune
+            retourner = "J";
         }
-        return retourner; //Renvoie la variable retourner
+        return retourner;
     }
     
     
