@@ -131,7 +131,7 @@ public class PlateauDeJeu {  //Initialisation d'un constructeur
      public boolean diagonaleDescendanteGagnantePourCouleur(String couleur) { //Mérhode pour savoir si on a gagné sur une diagonale descendante
         boolean gagnant = false;
         for (int i = 5; i>=3; i--) { //On part de la case haut gauche, et on descends les lignes 
-            for (int j = 0; j<=4; j--) { //On commence à la colonne 0 et on se décale une par une
+            for (int j = 0; j<=4; j++) { //On commence à la colonne 0 et on se décale une par une
                 if (grille[i][j].lireCouleurDuJeton() == couleur) {
                     if (grille[i-1][j+1].lireCouleurDuJeton() == couleur && grille[i-2][j+2].lireCouleurDuJeton() == couleur && grille[i-3][j+3].lireCouleurDuJeton() == couleur) {
                          //On regarde les couleurs des cases en diagonanles descendantes par rapport à notre case de base, si les 3 suivantes (en diago) sont aussi de la même couleur, c'est gagné

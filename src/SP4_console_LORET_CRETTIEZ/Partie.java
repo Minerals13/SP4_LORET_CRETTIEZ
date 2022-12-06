@@ -97,6 +97,7 @@ public class Partie {
     
     public void lancerPartie() {
         joueurCourant = listeJoueurs[0];
+        joueurDeux = listeJoueurs[1];
         boolean fin = false;
         int choix;
         int colonne;

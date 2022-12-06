@@ -22,19 +22,27 @@ public class CelluleDeGrille {
    
     
     public boolean presenceJeton () {
-        boolean retour; //variable temporaire de type boolean
-        if ((jetonCourant.lireCouleur() == "rouge") || (jetonCourant.lireCouleur() == "jaune")) {
-           retour = true; //Si il y a un jeton, retour prend la valeur true 
+        if (jetonCourant == null) {
+            return false;
         } else {
-        retour = false; //Si il n'y a pas de jeton, retour prend la valeur false
+            return true;
         }
-    return retour; //retroune la variable 
     }
+        
+        
+        //boolean retour = false; //variable temporaire de type boolean
+        //if ((jetonCourant.lireCouleur() == "rouge") || (jetonCourant.lireCouleur() == "jaune")) {
+           //retour = true; //Si il y a un jeton, retour prend la valeur true 
+        //} else if (jetonCourant == null){
+        //retour = false; //Si il n'y a pas de jeton, retour prend la valeur false
+        //}
+    //return retour; //retroune la variable 
+    //}
     
     
-   public void affecterJeton (Jeton jetCour) {
+    public void affecterJeton (Jeton jetCour) {
        jetonCourant = jetCour; //affecte la valeur de jetCour à jetonCourant pour l'ajouter en paramètre de la cellule
-   }
+    }
    
    
    public String lireCouleurDuJeton () {
