@@ -176,7 +176,11 @@ public class Partie {
                 fin = true;
                 System.out.println("La grille est entièrement remplie, fin de partie");
             }
-            joueurCourant = joueurDeux; //Changement de joueur, c'est au tour du deuxième joueur de jouer
+            if (joueurCourant == listeJoueurs[0]) {
+                joueurCourant = joueurDeux; //joueurCouant devient listeJoueurs[1]
+            } else {
+                joueurCourant = listeJoueurs[0]; //
+            }
         }
     }
 } 

@@ -33,7 +33,7 @@ public class CelluleDeGrille {
     
     
    public void affecterJeton (Jeton jetCour) {
-       this.jetonCourant = jetCour; //affecte la valeur de jetCour à jetonCourant pour l'ajouter en paramètre de la cellule
+       jetonCourant = jetCour; //affecte la valeur de jetCour à jetonCourant pour l'ajouter en paramètre de la cellule
    }
    
    
@@ -54,6 +54,10 @@ public class CelluleDeGrille {
         retourner = "R"; //Si jetonCourant est rouge, retourner prend la valeur "R"
         } else if (jetonCourant.lireCouleur() == "jaune") {
             retourner = "J"; //Si jetonCourant est jaune, retourner prend la valeur "J"
+        }else if (presenceDesintegrateur () == true) {
+            retourner = "D";
+        } else if (presenceTrouNoir() == true) {
+            retourner = "@";
         } else {
             retourner = "."; //Si il n'y a pas de couleur, il n'y a pas de jeton, donc retourner prend la valeur "."
         }
