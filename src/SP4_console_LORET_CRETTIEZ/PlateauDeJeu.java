@@ -28,20 +28,30 @@ public class PlateauDeJeu {  //Initialisation d'un constructeur
     }
     
     
-    int indLigneVide = 0;
-    public int ajouterJetonDansColonne(Jeton jeton, int colonne) {  // Ajoute un jeton le plus bas possible.
+    //int indLigneVide = 0;
+    //public int ajouterJetonDansColonne(Jeton jeton, int colonne) {  // Ajoute un jeton le plus bas possible.
         //Jeton corresponds au jeton du joueur et int corresponds à son indice de colonne
-        int j=colonne;
-        for (int i=0;i<6;i++) {  //i servira d'indice de ligne pour trouver une case vide
-            if (grille[i][j].presenceJeton()==true) { // On part de la ligne 0 (en bas) et dès qu'on trouve une ligne vide dans la colonne choisie,
+      //  int j=colonne;
+        //for (int i=0;i<6;i++) {  //i servira d'indice de ligne pour trouver une case vide
+          //  if (grille[i][j].presenceJeton()==true) { // On part de la ligne 0 (en bas) et dès qu'on trouve une ligne vide dans la colonne choisie,
                                                 // on enregistre l'indice de cette ligne dans une variable "indLigneVide"
-                indLigneVide++;
-             } else {
-                grille[i][j].affecterJeton(jeton);
-            }
+            //    indLigneVide++;
+             //} else {
+               // grille[i][j].affecterJeton(jeton);
+            //}
         
+        //}
+        //return indLigneVide;
+    //}
+    
+      public int ajouterJetonDansColonne(Jeton jeton, int colonne){
+        for (int i=0; i<6;i++){
+            if (grille[i][colonne].presenceJeton()==false){
+                grille[i][colonne].affecterJeton(jeton);
+                return i;
+            }
         }
-        return indLigneVide;
+        return -1;
     }
     
     public boolean grilleRemplie() { // Méthode qui nous indique si la grille est remplie en vérifiant si toutes les cases sont remplies par des objets de types Jeton
