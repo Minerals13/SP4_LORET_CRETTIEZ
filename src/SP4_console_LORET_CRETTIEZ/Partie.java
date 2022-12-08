@@ -118,7 +118,7 @@ public class Partie {
             }
             if (choix == 1 ) { //Le joueur place un jeton
                 colonne = 10;
-                while (colonne < 1 && colonne > 7) {
+                while ((colonne < 1) || (colonne > 7)) {
                    System.out.println("Dans quelle colonne souhaitez vous placer votre jeton ? (colonne 1 à 7");
                    colonne = scan.nextInt();
                 }
