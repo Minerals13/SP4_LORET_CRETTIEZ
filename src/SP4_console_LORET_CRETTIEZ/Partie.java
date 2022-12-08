@@ -127,6 +127,7 @@ public class Partie {
                     colonne = scan.nextInt();
                 }
                 ligne = plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), colonne - 1);
+                System.out.println(ligne);
                 
                 if (plateau.presenceTrouNoir(ligne, colonne - 1) == true) {
                     plateau.supprimerJeton(ligne, colonne - 1);

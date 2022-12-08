@@ -36,11 +36,12 @@ public class PlateauDeJeu {  //Initialisation d'un constructeur
             if (grille[i][j].presenceJeton()==true) { // On part de la ligne 0 (en bas) et dès qu'on trouve une ligne vide dans la colonne choisie,
                                                 // on enregistre l'indice de cette ligne dans une variable "indLigneVide"
                 indLigneVide++;
-             } else {
-                grille[i][j].affecterJeton(jeton);
+            
+                
             }
         
         }
+        grille[indLigneVide][colonne].affecterJeton(jeton);
         return indLigneVide;
     }
     
