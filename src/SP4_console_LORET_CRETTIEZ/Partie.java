@@ -108,7 +108,7 @@ public class Partie {
             plateau.afficherGrilleSurConsole();
             System.out.println("C'est au tour de " + joueurCourant + " de jouer, couleur : "+joueurCourant.getColor());
             choix = 5;
-            while (choix < 0 && choix > 3) {
+            while ((choix < 0) ||  (choix > 3)) {
                 System.out.println("Action possible");
                 System.out.println("Placer un jeton : 1");
                 System.out.println("Récupérer un jeton : 2");
