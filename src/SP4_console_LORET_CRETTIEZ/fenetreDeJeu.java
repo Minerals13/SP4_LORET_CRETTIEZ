@@ -10,14 +10,10 @@ package SP4_console_LORET_CRETTIEZ;
  */
 public class fenetreDeJeu extends javax.swing.JFrame {
 
-    private final Joueur listeJoueurs[] = new Joueur[2]; //Création de la liste des joueurs comprennant 2 joueurs
-    private Joueur joueurCourant;
-    private Joueur joueurDeux;
-    private PlateauDeJeu plateau;
-
     Joueur Listejoueurs[] = new Joueur[2];
     Joueur JoueurCourant;
-    Grille grilleDeJeu = new Grille();
+    Joueur joueurDeux;
+    PlateauDeJeu grilleDeJeu = new PlateauDeJeu();
 
     /**
      * Creates new form fenetreDeJeu
@@ -29,7 +25,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; j++) {
-                CelluleGraphique cellGraph = new CelluleGraphique();
+                CelluleGraphique cellGraph = new CelluleGraphique(grilleDeJeu.grille[i][j]);
                 panneau_grille.add(cellGraph);
 
             }

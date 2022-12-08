@@ -16,6 +16,7 @@ public class Partie {
     private Joueur joueurCourant;
     private Joueur joueurDeux;
     private PlateauDeJeu plateau;
+    PlateauDeJeu grilleDeJeu = new PlateauDeJeu();
     
     
     public Partie (Joueur J1, Joueur J2) { //Constructeur

@@ -4,6 +4,9 @@
  */
 package SP4_console_LORET_CRETTIEZ;
 
+/////VIDEO : cellule = cellule de grille
+/////VIDEO : cellule[][] = grille [][]
+
 /**
  *
  * @author emili
@@ -55,16 +58,17 @@ public class PlateauDeJeu {  //Initialisation d'un constructeur
     }
     
     public void afficherGrilleSurConsole() { //Méthode qui affiche notre grille remplie sur la base de la méthode toString
-        for (int i=0;i<6;i++) { //On parcourt toutes les lignes une par une, en affichant à chaque fois toute la ligne en changeant l'indice de colonne
+        for (int i=0;i<6.;i++) { //On parcourt toutes les lignes une par une, en affichant à chaque fois toute la ligne en changeant l'indice de colonne
             for (int j=0;j<7;j++) {
-                if (j==6) {     //Une fois qu'on attends la fin de la ligne (j=6), on fait un retour à la ligne et on reprends sur une nouvelle ligne
-                    System.out.println("\n");                                       
-                } else {
-                    System.out.println(grille[i][j].toString());
-                }
+                System.out.print(grille[i][j]+" ");
+            }
+            System.out.println(" "+(i+1));
+            
+                
+                
             }
         }
-    }
+    
     
     public boolean presenceJeton(int x, int y) { //Méthode qui permets de savoir si il y a un jeton en x,y (correspondant à la xème ligne et yème colonne)
         if (grille[x][y].presenceJeton()==true){
