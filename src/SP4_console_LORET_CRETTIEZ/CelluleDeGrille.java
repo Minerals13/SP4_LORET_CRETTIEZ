@@ -29,16 +29,6 @@ public class CelluleDeGrille {
         }
     }
         
-        
-        //boolean retour = false; //variable temporaire de type boolean
-        //if ((jetonCourant.lireCouleur() == "rouge") || (jetonCourant.lireCouleur() == "jaune")) {
-           //retour = true; //Si il y a un jeton, retour prend la valeur true 
-        //} else if (jetonCourant == null){
-        //retour = false; //Si il n'y a pas de jeton, retour prend la valeur false
-        //}
-    //return retour; //retroune la variable 
-    //}
-    
     
     public void affecterJeton (Jeton jetCour) {
        jetonCourant = jetCour; //affecte la valeur de jetCour à jetonCourant pour l'ajouter en paramètre de la cellule
