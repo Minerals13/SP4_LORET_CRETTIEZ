@@ -28,7 +28,9 @@ public class CelluleDeGrille {
             return true;
         }
     }
-        
+    public Jeton getJetonCourant() {
+        return jetonCourant;
+    }
     
     public void affecterJeton (Jeton jetCour) {
        jetonCourant = jetCour; //affecte la valeur de jetCour à jetonCourant pour l'ajouter en paramètre de la cellule

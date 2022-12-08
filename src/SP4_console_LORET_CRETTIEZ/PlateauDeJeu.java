@@ -36,8 +36,8 @@ public class PlateauDeJeu {  //Initialisation d'un constructeur
             if (grille[i][j].presenceJeton()==true) { // On part de la ligne 0 (en bas) et dès qu'on trouve une ligne vide dans la colonne choisie,
                                                 // on enregistre l'indice de cette ligne dans une variable "indLigneVide"
                 indLigneVide++;
-            } else {
-                grille[i][j].affecterJeton(jeton);
+          //  } else {
+             //   grille[i][j].affecterJeton(jeton);
             }
         
         }
@@ -158,12 +158,12 @@ public class PlateauDeJeu {  //Initialisation d'un constructeur
         }
     }  
     
-    public void tasserColonne(int indColonne) { //Méthode qui permets de faire tomber les jetons si une case est libre en dessous d'eux
-        for (int i = 0; i<5; i++) {
-            if (grille[i][indColonne].presenceJeton() == false) { //On regarde si y'a du vide à la case i,j; si c'est le cas, on regarde une nouvelle condition
-                if (grille[i+1][indColonne].presenceJeton() == true) { //Si la case du dessus est remplie, on va la descendre
-                    grille[i][indColonne].affecterJeton(grille[i+1][indColonne].recupererJeton()); // Récupère le jeton de la ligne n+1 pour la mettre à la ligne n
-                    grille[i+1][indColonne].supprimerJeton(); //On supprime le jeton qui était en haut et qui a été descendu
+    public void tasserColonne(int colonne) {
+        for (int ligne = 5; ligne > 0; ligne--) {
+            if (grille[ligne][colonne].presenceJeton() == false) { //si la case est vide
+                if (grille[ligne - 1][colonne].presenceJeton() == true) {//et si sa case au dessus est pleine
+                    grille[ligne][colonne].affecterJeton(grille[ligne - 1][colonne].getJetonCourant());//on prend le jeton de la case superieure et on le met dans la case traitee
+                    grille[ligne - 1][colonne].supprimerJeton();//et on le supprime de la case au dessu
                 }
             }
         }

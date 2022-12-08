@@ -272,7 +272,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
         panneau_info_joueur.setVisible(true);
-        panneau_info_partie.setVisible(true);        // TODO add your handling code here:
+        panneau_info_partie.setVisible(true); 
+        
+// TODO add your handling code here:
     }//GEN-LAST:event_btn_startActionPerformed
 
     /**

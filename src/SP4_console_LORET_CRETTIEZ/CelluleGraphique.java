@@ -16,7 +16,7 @@ public class CelluleGraphique extends JButton {
     CelluleDeGrille celluleAssociee;
     
     
-    ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/images/celluleVide.pnj"));
+    ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/images/celluleVide.png"));
     
     
     public CelluleGraphique (CelluleDeGrille uneCellule) {
