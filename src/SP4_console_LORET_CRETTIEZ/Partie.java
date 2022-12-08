@@ -108,7 +108,7 @@ public class Partie {
             plateau.afficherGrilleSurConsole();
             System.out.println("C'est au tour de " + joueurCourant.getNom() + " de jouer, couleur : "+joueurCourant.getColor());
             choix = 5;
-            while ((choix < 0) ||  (choix > 3)) {
+            while ((choix < 1) ||  (choix > 3)) {
                 System.out.println("Action possible");
                 System.out.println("Placer un jeton : 1");
                 System.out.println("Recuperer un jeton : 2");
@@ -122,14 +122,14 @@ public class Partie {
                    System.out.println("Dans quelle colonne souhaitez vous placer votre jeton ? (colonne 1 a 7)");
                    colonne = scan.nextInt();
                 }
-                while (plateau.colonneRemplie(colonne) == true) { //Il faut mettre le plateau?
+                while (plateau.colonneRemplie(colonne - 1) == true) { //Il faut mettre le plateau?
                     System.out.println("La colonne est pleine, choisissez une autre colonne");
                     colonne = scan.nextInt();
                 }
                 ligne = plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), colonne - 1);
                 
-                if (plateau.presenceTrouNoir(ligne, colonne) == true) {
-                    plateau.supprimerJeton(ligne, colonne);
+                if (plateau.presenceTrouNoir(ligne, colonne - 1) == true) {
+                    plateau.supprimerJeton(ligne, colonne - 1);
                     plateau.supprimerTrouNoir(ligne, colonne - 1);
                     System.out.println("Le jeton a ete engloutit par un trou noir");
                 }

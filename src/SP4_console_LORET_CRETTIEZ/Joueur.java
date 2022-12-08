@@ -51,8 +51,8 @@ public class Joueur {
     public Jeton jouerJeton () {
         Jeton useJeton; //Déclaration et initialisation de la variable useJeton (type Jeton)
         //Récupère et stock la référence du premier jeton de la réserve (tableau reserveJetons) dans la variable
-        useJeton = reserveJetons.remove(0); //Supprime le premier jeton de la réserve
-        //Récupère et stock la référence du premier jeton de la réserve (tableau reserveJetons) dans la variable
+        useJeton = reserveJetons.get(0); //Récupère la référence du premier jeton de la réserve
+        reserveJetons.remove(0); //Supprime le premier jeton de la réserve
         return useJeton; //Retourne le jeton
     }
     
