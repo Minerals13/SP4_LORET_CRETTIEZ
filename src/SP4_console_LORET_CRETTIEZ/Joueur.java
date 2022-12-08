@@ -38,6 +38,10 @@ public class Joueur {
         return Color; //Retourne la valeur de l'attribut Color
     }
     
+    public String getNom () {
+        return Nom;
+    }
+    
     
     public void ajouterJeton (Jeton jet) {
         reserveJetons.add(jet); //Ajoute des jetons (jet) au tableau dynamique reserveJetons
