@@ -28,7 +28,7 @@ public class PlateauDeJeu {  //Initialisation d'un constructeur
     }
     
     
-    int indLigneVide;
+    int indLigneVide = 0;
     public int ajouterJetonDansColonne(Jeton jeton, int colonne) {  // Ajoute un jeton le plus bas possible.
         //Jeton corresponds au jeton du joueur et int corresponds à son indice de colonne
         int j=colonne;
@@ -36,8 +36,8 @@ public class PlateauDeJeu {  //Initialisation d'un constructeur
             if (grille[i][j].presenceJeton()==true) { // On part de la ligne 0 (en bas) et dès qu'on trouve une ligne vide dans la colonne choisie,
                                                 // on enregistre l'indice de cette ligne dans une variable "indLigneVide"
                 indLigneVide++;
-          //  } else {
-             //   grille[i][j].affecterJeton(jeton);
+             } else {
+                grille[i][j].affecterJeton(jeton);
             }
         
         }
