@@ -56,9 +56,9 @@ public class Partie {
             col = ab.nextInt(6); //Tire un chiffre entre 0 et 6
             lig = ab.nextInt(5); //Tire un chiffre entre en 0 et 5
             if (plateau.presenceTrouNoir(lig, col) == false) { //Si il n'y a pas de trou noir
-                plateau.placerTrouNoir(lig, col); //On en place un
                 if (plateau.presenceDesintegrateur(lig, col) == false) { //Si il n'y a pas de désintégrateur
-                    plateau.placerDesintegrateur(lig, col); //On en place un
+                    plateau.placerTrouNoir(lig, col); //On place un trou noir
+                    plateau.placerDesintegrateur(lig, col); //On place un désintégrateur
                     nb += 1; //On ajoute 1 pour petit à petit sortir de la boucle while
                 }
             }
@@ -108,11 +108,12 @@ public class Partie {
             plateau.afficherGrilleSurConsole();
             System.out.println("C'est au tour de " + joueurCourant + " de jouer, couleur : "+joueurCourant.getColor());
             choix = 5;
-            while (choix > 0 && choix < 3) {
+            while (choix < 0 && choix > 3) {
                 System.out.println("Action possible");
                 System.out.println("Placer un jeton : 1");
                 System.out.println("Récupérer un jeton : 2");
                 System.out.println("Utiliser un désintégrateur : 3");
+                System.out.println("Que voulez vous faire ?");
                 choix = scan.nextInt();
             }
             if (choix == 1 ) { //Le joueur place un jeton
