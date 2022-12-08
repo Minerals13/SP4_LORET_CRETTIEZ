@@ -127,8 +127,8 @@ public class Partie {
                     colonne = scan.nextInt();
                 }
                 ligne = plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), colonne - 1);
-                System.out.println(ligne);
                 
+                plateau.tasserColonne(colonne);
                 if (plateau.presenceTrouNoir(ligne, colonne - 1) == true) {
                     plateau.supprimerJeton(ligne, colonne - 1);
                     plateau.supprimerTrouNoir(ligne, colonne - 1);
@@ -139,7 +139,7 @@ public class Partie {
                     joueurCourant.obtenirDesintegrateur();
                     System.out.println("Vous avez gagne un desintegrateur");
                 }
-                
+                System.out.println(ligne);
             } else if (choix == 2) { //Le joueur récupère un jeton
                 System.out.println("Quelle est la colonne du jeton ?");
                 colonne = scan.nextInt();

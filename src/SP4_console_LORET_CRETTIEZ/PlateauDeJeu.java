@@ -28,7 +28,7 @@ public class PlateauDeJeu {  //Initialisation d'un constructeur
     }
     
     
-    int indLigneVide = 0;
+      int indLigneVide = 0;
     public int ajouterJetonDansColonne(Jeton jeton, int colonne) {  // Ajoute un jeton le plus bas possible.
         //Jeton corresponds au jeton du joueur et int corresponds à son indice de colonne
         int j=colonne;

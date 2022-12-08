@@ -34,7 +34,7 @@ public class CelluleDeGrille {
     
     
     public void affecterJeton (Jeton jetCour) {
-       jetonCourant = jetCour; //affecte la valeur de jetCour à jetonCourant pour l'ajouter en paramètre de la cellule
+       this.jetonCourant = jetCour; //affecte la valeur de jetCour à jetonCourant pour l'ajouter en paramètre de la cellule
     }
    
    
