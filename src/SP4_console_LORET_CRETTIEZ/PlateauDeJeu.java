@@ -41,6 +41,7 @@ public class PlateauDeJeu {  //Initialisation d'un constructeur
             }
         
         }
+        
         grille[indLigneVide][colonne].affecterJeton(jeton);
         return indLigneVide;
     }
